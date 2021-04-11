@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         startActivity(naverIntent);
     }
     public void onClickCallButton(View v){
-        Intent callIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1234-1313"));
+        Intent callIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1234-1323"));
         startActivity(callIntent);
     }
 }
