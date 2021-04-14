@@ -16,7 +16,7 @@ public class FrameLayout extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        setContentView(R.layout.activity_frame_layout);
+        setContentView(R.layout.layout);
         imageView = (ImageView) findViewById(R.id.imageView);
         imageView2 = (ImageView)findViewById(R.id.imageView2);
 

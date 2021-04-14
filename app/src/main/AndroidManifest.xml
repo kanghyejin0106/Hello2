@@ -10,8 +10,8 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello">
         <activity android:name=".MainActivityLinear"></activity>
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FrameLayout">
+        <activity android:name=".FrameLayout" />
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
