@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Hello">
         <activity android:name=".MainActivityLinear"></activity>
         <activity android:name=".FrameLayout" />
-        <activity android:name=".MainActivity">
+        <activity android:name=".event_Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
