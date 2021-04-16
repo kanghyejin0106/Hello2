@@ -9,9 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello">
-        <activity android:name=".MainActivityLinear"></activity>
+        <activity android:name=".event_Activity"></activity>
+        <activity
+            android:name=".MainActivity2"
+            android:label="@string/title_activity_main2"
+            android:theme="@style/Theme.Hello.NoActionBar" />
+        <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".event_Activity">
+        <activity android:name=".MainActivity3">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
