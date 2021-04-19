@@ -1,12 +1,15 @@
 package android.develop.hello;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.Toast;
 
@@ -16,17 +19,18 @@ import androidx.appcompat.app.AppCompatActivity;
 public class MainActivity3 extends AppCompatActivity {
     private static final int REQUEST_CODE_MENU = 101;
     LinearLayout container;
+    EditText nameInput;
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
         if(requestCode == REQUEST_CODE_MENU){
-            Toast.makeText(getApplicationContext(), "호출됨", Toast.LENGTH_LONG).show();
+            ///Toast.makeText(getApplicationContext(), "호출됨", Toast.LENGTH_LONG).show();
 
             if(resultCode == RESULT_OK){
                 String name = data.getStringExtra("name");
-                Toast.makeText(getApplicationContext(), "호출받은 name: "+name , Toast.LENGTH_LONG).show();
+                //Toast.makeText(getApplicationContext(), "호출받은 name: "+name , Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -58,7 +62,46 @@ public class MainActivity3 extends AppCompatActivity {
                 startActivityForResult(intent, REQUEST_CODE_MENU);
             }
         });
+
+        nameInput = findViewById(R.id.editTextText);
     }
 
+    @Override
+    protected void onPause() {
+        super.onPause();
 
+        Toast.makeText(getApplicationContext(), "onPause 호출", Toast.LENGTH_SHORT).show();
+        saveState();;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        Toast.makeText(getApplicationContext(), "onResume 호출", Toast.LENGTH_SHORT).show();
+        restoreState();
+    }
+
+    protected void restoreState(){
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        if((pref != null) && (pref.contains("name"))){
+            String name = pref.getString("name","");
+            nameInput.setText(name);
+        }
+    }
+
+    protected void saveState(){
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.putString("name", nameInput.getText().toString());
+        editor.commit();
+
+    }
+
+    protected void clearState(){
+        SharedPreferences pref = getSharedPreferences("pref", Activity.MODE_PRIVATE);
+        SharedPreferences.Editor editor = pref.edit();
+        editor.clear();
+        editor.commit();
+    }
 }

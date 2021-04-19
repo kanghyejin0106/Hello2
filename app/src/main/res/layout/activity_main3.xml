@@ -8,6 +8,14 @@
     android:orientation="vertical">
 
 
+    <EditText
+        android:id="@+id/editTextText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:text="Name" />
+
     <Button
         android:id="@+id/button5"
         android:layout_width="match_parent"
