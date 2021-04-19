@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity3"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    >
 
 
     <EditText
@@ -28,11 +29,17 @@
         android:layout_height="wrap_content"
         android:text="Button" />
 
-    <LinearLayout
+    <!--<LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:id = "@+id/container">
+        android:id = "@+id/container2">
+    </LinearLayout>-->
+    <fragment
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/mainFragment"
+        android:name="android.develop.hello.MainFragment"
+        ></fragment>
 
-    </LinearLayout>
 </LinearLayout>
