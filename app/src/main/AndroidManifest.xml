@@ -9,10 +9,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello">
-        <activity android:name=".MainActivity4"
+        <activity android:name=".MainActivity3"></activity>
+        <activity
+            android:name=".MainActivity4"
             android:label="메뉴엑티비티"
-            android:theme="@style/Theme.AppCompat.Dialog">
-        </activity>
+            android:theme="@style/Theme.AppCompat.Dialog"></activity>
         <activity android:name=".event_Activity" />
         <activity
             android:name=".MainActivity2"
@@ -20,7 +21,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".MainActivity3">
+        <activity android:name=".MainActivity_forFragment">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
