@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -23,8 +24,17 @@ public class MenuFragment extends Fragment {
             public void onClick(View v) {
                 MainActivity3 activity = (MainActivity3) getActivity();
                 activity.onFragmentChanged(1);
+                Toast.makeText(getActivity(), "pauseMenu", Toast.LENGTH_SHORT).show();
             }
         });
         return rootView;
     }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        Toast.makeText(getActivity(), "pauseMenu", Toast.LENGTH_SHORT).show();
+    }
+
+
 }

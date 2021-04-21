@@ -35,11 +35,17 @@
         android:orientation="vertical"
         android:id = "@+id/container2">
     </LinearLayout>-->
-    <fragment
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/mainFragment"
+        android:id="@+id/mainFragment01">
+    <fragment
         android:name="android.develop.hello.MainFragment"
-        ></fragment>
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        >
+    </fragment>
+    </RelativeLayout>
+
 
 </LinearLayout>

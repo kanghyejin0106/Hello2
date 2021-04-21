@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.fragment.app.Fragment;
 
@@ -71,5 +72,17 @@ public class MainFragment extends Fragment {
         });
 
         return rootView;
+    }
+
+    @Override
+    public void onPause() {
+        super.onPause();
+        //Toast.makeText(getActivity(), "pauseMain", Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onDetach() {
+        super.onDetach();
+        Toast.makeText(getActivity(), "deTach", Toast.LENGTH_SHORT).show();
     }
 }

@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.FragmentTransaction;
 
 public class MainActivity3 extends AppCompatActivity {
     private static final int REQUEST_CODE_MENU = 101;
@@ -63,18 +64,24 @@ public class MainActivity3 extends AppCompatActivity {
             }
         });
 
-        mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.mainFragment);
-        menuFragment = new MenuFragment();
+        //mainFragment = (MainFragment) getSupportFragmentManager().findFragmentById(R.id.mainFragment01);
+
 
         nameInput = findViewById(R.id.editTextText);
     }
 
     public void onFragmentChanged(int index){
         if(index == 0){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, menuFragment).commit();
+            menuFragment = new MenuFragment();
+            FragmentTransaction transaction = getSupportFragmentManager().beginTransaction();
+            transaction.replace(R.id.mainFragment01, menuFragment);
+            transaction.addToBackStack(null);
+            transaction.commit();
+
         }
         else  if(index == 1){
-            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment, mainFragment).commit();
+            mainFragment = new MainFragment();
+            getSupportFragmentManager().beginTransaction().replace(R.id.mainFragment01, mainFragment).commit();
         }
     }
     @Override
