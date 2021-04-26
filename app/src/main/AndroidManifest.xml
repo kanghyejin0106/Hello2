@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="android.develop.hello">
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.RECEIVE_SMS"/>
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,11 +12,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello">
+        <receiver
+            android:name=".SmsReceiver"
+            android:enabled="true"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.provider.Telephony.SMS_RECEIVED"/>
+            </intent-filter>
+        </receiver>
+
         <service
             android:name=".MyService"
             android:enabled="true"
-            android:exported="true"></service>
-        <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
+            android:exported="true" /> <!-- android:theme="@style/Theme.AppCompat.Light.NoActionBar" -->
         <activity android:name=".MainActivity_forFragment" />
         <activity android:name=".MainActivity3" />
         <activity
@@ -28,9 +38,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity
-            android:name=".MainActivity"
-            >
+        <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

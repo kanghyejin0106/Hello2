@@ -18,9 +18,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
+import com.pedro.library.AutoPermissions;
+import com.pedro.library.AutoPermissionsListener;
+
 import java.util.ArrayList;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements AutoPermissionsListener {
     EditText editText;
     Button button2;
 
@@ -60,6 +63,8 @@ public class MainActivity extends AppCompatActivity {
                 Manifest.permission.WRITE_EXTERNAL_STORAGE
         };
         checkPermissions(permissions);
+
+        AutoPermissions.Companion.loadAllPermissions(this, 101);
     }
 
     public void checkPermissions(String[] permissions){
@@ -92,8 +97,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        //super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
+        /*switch (requestCode){
             case 101:
                 if(grantResults.length>0 && grantResults[0] == PackageManager.PERMISSION_GRANTED){
                     Toast.makeText(this, "승인함", Toast.LENGTH_SHORT).show();
@@ -102,7 +107,9 @@ public class MainActivity extends AppCompatActivity {
                     Toast.makeText(this, "거부함", Toast.LENGTH_SHORT).show();
                 }
                 return;
-        }
+        }*/
+        AutoPermissions.Companion.parsePermissions(this, requestCode, permissions, this);
+
     }
 
     public void showMessage(){
@@ -169,6 +176,16 @@ public class MainActivity extends AppCompatActivity {
     public void onClickCallButton(View v){
         Intent callIntent = new Intent(Intent.ACTION_VIEW, Uri.parse("tel:010-1234-1323"));
         startActivity(callIntent);
+    }
+
+    @Override
+    public void onDenied(int i, String[] strings) {
+        Toast.makeText(this, "permission deny: "+strings.length, Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onGranted(int i, String[] strings) {
+        Toast.makeText(this, "permission grant: "+strings.length, Toast.LENGTH_SHORT).show();
     }
 }
 
