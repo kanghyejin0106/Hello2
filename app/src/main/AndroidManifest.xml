@@ -7,6 +7,8 @@
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     -->
     <uses-permission android:name="android.permission.INTERNET" />
+    <permission android:name="android.develop.hello.READ_DATABASE" android:protectionLevel="normal"/>
+    <permission android:name="android.develop.hello.WRITE_DATABASE" android:protectionLevel="normal"/>
 
     <application
         android:allowBackup="true"
@@ -17,7 +19,6 @@
         android:theme="@style/Theme.Hello"
         android:usesCleartextTraffic="true">
 
-
         <receiver
             android:name=".SmsReceiver"
             android:enabled="true"
@@ -26,6 +27,12 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+        <provider
+            android:authorities="android.develop.hello"
+            android:name=".PersonProvider"
+            android:exported="true"
+            android:readPermission="android.develop.hello.READ_DATABASE"
+            android:writePermission="android.develop.hello.WRITE_DATABASE"/>
 
         <service
             android:name=".MyService"
@@ -44,7 +51,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".sqlite">
+        <activity android:name=".sampleProvider">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
