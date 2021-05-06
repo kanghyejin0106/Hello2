@@ -6,9 +6,22 @@
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.RECEIVE_SMS" />
     -->
+    <permission android:name="android.develop.hello.permission.MAPS_RECEIVE"
+        android:protectionLevel="signature"/>
+    <uses-permission android:name="android.develop.hello.permission.MAPS_RECEIVE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <permission android:name="android.develop.hello.READ_DATABASE" android:protectionLevel="normal"/>
-    <permission android:name="android.develop.hello.WRITE_DATABASE" android:protectionLevel="normal"/>
+    <uses-permission android:name="com.google.android.providers.gsf.permission.READ_GSERVICES"/>
+    <uses-feature android:glEsVersion="0x00020000"
+        android:required="true"/>
+
+    <permission
+        android:name="android.develop.hello.READ_DATABASE"
+        android:protectionLevel="normal" />
+    <permission
+        android:name="android.develop.hello.WRITE_DATABASE"
+        android:protectionLevel="normal" />
 
     <application
         android:allowBackup="true"
@@ -18,6 +31,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello"
         android:usesCleartextTraffic="true">
+        <uses-library android:name="com.google.android.maps"/>
+        <uses-library android:name="org.apache.http.legacy"
+            android:required="false"/>
+
+        <meta-data
+            android:name="com.google.android.maps.v2.API_KEY"
+            android:value="AIzaSyCTcHJyxoilxN7Knma5C0Twg9mmqSSQnTQ"/>
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version"/>
 
         <receiver
             android:name=".SmsReceiver"
@@ -27,12 +50,13 @@
                 <action android:name="android.provider.Telephony.SMS_RECEIVED" />
             </intent-filter>
         </receiver>
+
         <provider
-            android:authorities="android.develop.hello"
             android:name=".PersonProvider"
+            android:authorities="android.develop.hello"
             android:exported="true"
             android:readPermission="android.develop.hello.READ_DATABASE"
-            android:writePermission="android.develop.hello.WRITE_DATABASE"/>
+            android:writePermission="android.develop.hello.WRITE_DATABASE" />
 
         <service
             android:name=".MyService"
@@ -51,7 +75,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".sampleProvider">
+        <activity android:name=".map">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
