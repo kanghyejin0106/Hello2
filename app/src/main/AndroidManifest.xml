@@ -51,6 +51,17 @@
             </intent-filter>
         </receiver>
 
+        <receiver android:name=".MyLocationProvider">
+            <intent-filter>
+                <action android:name="android.appwidget.action.APPWIDGET_UPDATE" />
+            </intent-filter>
+            <meta-data android:name="android.appwidget.provider"
+                android:resource="@xml/mylocationinfo" />
+        </receiver>
+
+        <service android:name=".MyLocationProvider$GPSLocationService"></service>
+
+
         <provider
             android:name=".PersonProvider"
             android:authorities="android.develop.hello"
