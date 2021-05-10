@@ -36,7 +36,17 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Hello"
         android:usesCleartextTraffic="true">
-        <activity android:name=".for_alarm"></activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:enabled="true"  android:exported="true" android:stopWithTask="false"
+           >
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <activity android:name=".for_alarm" />
 
         <uses-library android:name="com.google.android.maps" />
         <uses-library
@@ -94,7 +104,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".notification">
+        <activity android:name=".push_alarm">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

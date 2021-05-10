@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "800523663833",
+    "project_id": "dogwood-vision-312913",
+    "storage_bucket": "dogwood-vision-312913.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:800523663833:android:9958dd618e139d196e81c8",
+        "android_client_info": {
+          "package_name": "android.develop.hello"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "800523663833-r37f55oslifa3cninvjju14mja3055r4.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3RV18D-DTlsNDBzhqBB1GZB_Va9Z79pc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "800523663833-r37f55oslifa3cninvjju14mja3055r4.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
