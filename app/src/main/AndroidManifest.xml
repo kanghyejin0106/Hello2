@@ -39,8 +39,9 @@
 
         <service
             android:name=".MyFirebaseMessagingService"
-            android:enabled="true"  android:exported="true" android:stopWithTask="false"
-           >
+            android:enabled="true"
+            android:exported="true"
+            android:stopWithTask="false">
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
@@ -104,7 +105,7 @@
             android:theme="@style/Theme.Hello.NoActionBar" />
         <activity android:name=".MainActivityLinear" />
         <activity android:name=".FrameLayout" />
-        <activity android:name=".push_alarm">
+        <activity android:name=".systemservice">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
